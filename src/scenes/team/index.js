@@ -50,7 +50,7 @@ const Team = () => {
             justifyContent="center"
             backgroundColor={
               access === "admin"
-                ? colors.greenAccent[600]
+                ? colors.greenAccent[700]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
@@ -68,15 +68,39 @@ const Team = () => {
   ];
 
   return (
-    <Box>
-      <Header title='TEAM' subtitle="Managing the team Members" />
-        <Box>
-          <DataGrid rows={mockDataTeam} columns={columns}>
-
-          </DataGrid>
-        </Box>
+    <Box m="20px">
+      <Header title="TEAM" subtitle="Managing the team Members" />
+      <Box
+        m="40px 0 0 0"
+        height="75vh"
+        sx={{
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            border: "none",
+            fontSize: "1.2em"
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: colors.blueAccent[700],
+            border: "none",
+          },
+          "& .MuiDataGrid-virtualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
+            border: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
+        }}
+      >
+        <DataGrid rows={mockDataTeam} columns={columns} />
+      </Box>
     </Box>
-  )
+  );
 }
 
 export default Team;
